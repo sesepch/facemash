@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceMash</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FaceMash</h1>
+            <p>Which one is better?</p>
+        </header>
+
+        <div class="images">
+            <div class="image-container">
+                <a href="{{ url_for('vote', img_id=img1.id) }}">
+                    <img src="{{ url_for('static', filename='images/' + img1.name) }}" alt="Image 1">
+                </a>
+            </div>
+            <div class="image-container">
+                <a href="{{ url_for('vote', img_id=img2.id) }}">
+                    <img src="{{ url_for('static', filename='images/' + img2.name) }}" alt="Image 2">
+                </a>
+            </div>
+        </div>
+        
+        
+
+        <footer>
+            <a class="button" href="{{ url_for('leaderboard') }}">View Leaderboard</a>
+        </footer>
+    </div>
+</body>
+</html>

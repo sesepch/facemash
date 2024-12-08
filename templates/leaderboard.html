@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Leaderboard</h1>
+        </header>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Votes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in leaderboard %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ entry.name }}</td>
+                    <td>{{ entry.votes }}</td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+
+        <footer>
+            <a class="button" href="{{ url_for('index') }}">Back to Voting</a>
+        </footer>
+    </div>
+</body>
+</html>
